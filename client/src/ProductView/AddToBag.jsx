@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+//added a comment to check this is the corret git repo
 
 const AddToBag = (props) => {
   const [show, setShow] = useState(false);
