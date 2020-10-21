@@ -11,6 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Rating from '@material-ui/lab/Rating';
 
 const ProductInfo = (props) => {
+  console.log(props, 'productinfo')
 
   return (
     <div className="productDetails">

@@ -3,6 +3,30 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const ProductDescription = (props) => {
+  console.log(props, 'props in product description');
+  let allFeatures = [];
+  let productFeatures = () => {
+    for (let key in props.details.features) {
+      let feature = props.details.features[key]["feature"];
+      let value = props.details.features[key]["value"];
+      allFeatures.push({feature, value})
+    }
+    console.log(allFeatures, 'all features');
+    return allFeatures.map((item, index) => {
+      return (
+        <div className="feature" key={index}>
+          <p>
+            <i className="fa fa-check" aria-hidden="true">
+            </i> {item.feature}: {item.value}
+          </p>
+        </div>
+      );
+    })
+  }
+
+  // if (props.details.features) {
+  //   productFeatures();    
+  // }
 
   return (
     <Row className="productDescription">
@@ -17,18 +41,9 @@ const ProductDescription = (props) => {
         }
       </Col>
       <Col sm={4}>
-        { !props.details.features
+        { !props.details
             ? <p>Loading</p>
-            : props.details.features.map((item, index) => {
-              return (
-                <div className="feature" key={index}>
-                  <p>
-                    <i className="fa fa-check" aria-hidden="true">
-                    </i> {item.feature}: {item.value}
-                  </p>
-                </div>
-              );
-            })
+            : productFeatures()
         }
       </Col>
     </Row>

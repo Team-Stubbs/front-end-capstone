@@ -38,8 +38,11 @@ class App extends React.Component {
   }
 
   getProduct(id) {
-    axios.get(`${apiURL}/products/${id}`)
+    //http://localhost:4000/
+    //inserting new api here for product view 
+    axios.get(`http://localhost:4000/product/${id}`)
       .then(result => {
+        console.log(result.data, 'result data??');
         this.setState({ productData: result.data });
       })
       .catch(error => {
